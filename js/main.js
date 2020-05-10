@@ -72,7 +72,7 @@ $(window).on('load', function() {
 		Hero Slider
 	--------------------*/
 	$('.hero-slider').owlCarousel({
-		loop: true,
+		loop: false,
 		nav: true,
 		dots: false,
 		navText:['<i class="arrow_left"></i>','<i class="arrow_right"></i>'],

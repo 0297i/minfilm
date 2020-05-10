@@ -9,12 +9,16 @@
 
 /* Template default CSS
 /*----------------------------------------*/
-
+@font-face {
+  font-family: 'neodgm';
+  src:  url('../icon-fonts/neodgm.ttf') format('ttf');
+  src:  url('../icon-fonts/neodgm.woff') format('woff');
+}
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap");
 html, body {
 	height: 100%;
-	font-family: "Poppins", sans-serif;
+	font-family: "neodgm", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	background: #151515;
 }
@@ -69,6 +73,7 @@ footer p {
 	color: dimgray;
     font-size: smaller;
 }
+
 /*---------------------
    Helper CSS
  -----------------------*/
