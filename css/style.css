@@ -47,7 +47,7 @@ p {
 	line-height: 1.8;
 }
 img {
-	max-width: 100%;
+	max-width: 25%;
 }
 input:focus, select:focus, button:focus, textarea:focus {
 	outline: none;
@@ -64,6 +64,10 @@ ul, ol {
 	.container {
 		max-width: 1200px;
 	}
+}
+footer p {
+	color: dimgray;
+    font-size: smaller;
 }
 /*---------------------
    Helper CSS
