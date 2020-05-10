@@ -71,18 +71,6 @@ $(window).on('load', function() {
 	/*------------------
 		Hero Slider
 	--------------------*/
-	$('.hero-slider').owlCarousel({
-		loop: false,
-		nav: true,
-		dots: false,
-		navText:['<i class="arrow_left"></i>','<i class="arrow_right"></i>'],
-		mouseDrag: false,
-		animateOut: 'fadeOut',
-		animateIn: 'fadeIn',
-		items: 1,
-		autoplay: true,
-		smartSpeed: 1000,
-	});
 
 })(jQuery);
 

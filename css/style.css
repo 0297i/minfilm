@@ -51,7 +51,7 @@ p {
 	line-height: 1.8;
 }
 img {
-	max-width: 25%;
+	max-width: 13%;
 }
 input:focus, select:focus, button:focus, textarea:focus {
 	outline: none;
@@ -506,25 +506,25 @@ footer p {
 	opacity: 1;
 	filter: alpha(opacity=100);
 }
-.owl-item.active .hero-text .ht-cata {
+.owl-item.active .hero-text-m .ht-cata {
 	-webkit-transition: all 0.5s ease 0.4s;
 	-moz-transition: all 0.5s ease 0.4s;
 	-o-transition: all 0.5s ease 0.4s;
 	transition: all 0.5s ease 0.4s;
 }
-.owl-item.active .hero-text h2 {
+.owl-item.active .hero-text-m h2 {
 	-webkit-transition: all 0.5s ease 0.6s;
 	-moz-transition: all 0.5s ease 0.6s;
 	-o-transition: all 0.5s ease 0.6s;
 	transition: all 0.5s ease 0.6s;
 }
-.owl-item.active .hero-text p {
+.owl-item.active .hero-text-m p {
 	-webkit-transition: all 0.5s ease 0.8s;
 	-moz-transition: all 0.5s ease 0.8s;
 	-o-transition: all 0.5s ease 0.8s;
 	transition: all 0.5s ease 0.8s;
 }
-.owl-item.active .hero-text .ht-btn {
+.owl-item.active .hero-text-m .ht-btn {
 	-webkit-transition: all 0.5s ease 1s;
 	-moz-transition: all 0.5s ease 1s;
 	-o-transition: all 0.5s ease 1s;

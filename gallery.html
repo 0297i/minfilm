@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<title>My Forest</title>
+	<title>Min Film</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Cassi Photo Studio HTML Template">
 	<meta name="keywords" content="photo, html">
@@ -45,7 +45,7 @@
 		</ul>
 		<div class="menu-footer">
 			<div class="footer-social">
-				<a href="https://blog.naver.com/0297i">Blog</a>
+				<!--<a href="https://blog.naver.com/0297i">Blog</a>-->
 				<a href="https://www.instagram.com/tse.rof/">Instagram</a>
 			</div>
 			<div class="copyright"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -68,16 +68,16 @@
 
 	<!-- Gallery section -->
 	<section class="gallery-section">
-		<div class="row gallery-gird">
-			<div class="col-lg-4 col-xl-3 col-sm-6">
+		<div class="row gallery-gird" id="app">
+			<div class="col-lg-4 col-xl-3 col-sm-6" v-for="img in galleryInfo" v-if="!img.isDeleted">
 				<a class="gallery-item fresco" >
-					<image src="image/1.jpg" alt="">
+					<image v-bind:src="img.name" alt="">
 					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
+						<h4>{{img.title}}</h4>
+						<p>{{img.sub}}</p>
 					</div>
 				</a>
-			</div>
+			</div><!--
 			<div class="col-lg-4 col-xl-3 col-sm-6">
 				<a class="gallery-item fresco">
 					<image src="image/2.jpg" alt="">
@@ -213,7 +213,7 @@
 					</div>
 				</a>
 			</div>
-		</div>
+		</div>-->
 		<div class="text-center pt-5">
 			<button class="site-btn">Load More</button>
 		</div>
@@ -223,7 +223,7 @@
 	<!-- Footer section -->
 	<footer class="footer-section">
 		<div class="footer-social">
-			<a href="https://blog.naver.com/0297i">Blog</a>
+				<!--<a href="https://blog.naver.com/0297i">Blog</a>-->
 		    <a href="https://www.instagram.com/tse.rof/">Instagram</a>
 		</div>
 		<div class="copyright"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -239,6 +239,18 @@
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/fresco.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript" src="settings.json"></script>
+<script type="text/javascript">
+	var app = new Vue({
+  el: '#app',
+  data: {
+        galleryInfo: galleryInfo
+  },
+  mounted : function (){
+  }
+
+});</script>
 
 	</body>
 </html>
