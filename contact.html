@@ -135,7 +135,29 @@ swal({
     type: "success"
 }).then(function(answer) {
 	if(answer=="amy12345"){
-		window.location = "admin.html";
+		//swal({text: "정답ㅋㅋㅋㅋ"});
+		swal({
+  buttons: {
+    upload_photos : {
+      text : "사진 업로드",
+      value : 'upload_photos',
+    },
+    edit_pages: {
+      text : "페이지 수정",
+      value : 'edit_pages'
+    }
+  }
+}).then((value) => {
+  switch (value) {
+    case "upload_photos":
+      window.location = "photo-upload.html";
+      break;
+    case "edit_pages":
+      window.location = "admin.html";
+      break;
+ }
+});
+		
 	}
 	else if(answer=="아야"){
 		swal({text: "정답ㅋㅋㅋㅋ",});
@@ -145,6 +167,7 @@ swal({
     }
 });
 }
+
 
 </script>
 

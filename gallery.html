@@ -65,159 +65,28 @@
 		</div>
 	</header>
 	<!-- Header section end -->
-
+<div id="app">
 	<!-- Gallery section -->
-	<section class="gallery-section">
-		<div class="row gallery-gird" id="app">
-			<div class="col-lg-4 col-xl-3 col-sm-6" v-for="img in galleryInfo" v-if="!img.isDeleted">
+
+	<section class="gallery-section"  >
+		<div class="row gallery-gird">
+			<div class="col-lg-4 col-xl-3 col-sm-6" v-for="(img,index) in galleryInfo" v-show="!img.isDeleted && index <= max">
 				<a class="gallery-item fresco" >
-					<image v-bind:src="img.name" alt="">
+					<image v-if="!img.isDeleted" v-bind:src="img.name" alt="">
 					<div class="gi-text">
 						<h4>{{img.title}}</h4>
 						<p>{{img.sub}}</p>
 					</div>
 				</a>
-			</div><!--
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/2.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
 			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/3.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/4.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/5.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/6.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/7.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/8.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/11.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/9.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/10.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/12.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/13.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/15.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/16.jpg" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-lg-4 col-xl-3 col-sm-6">
-				<a class="gallery-item fresco">
-					<image src="image/10cm.png" alt="">
-					<div class="gi-text">
-						<h4>Forest and Nature</h4>
-						<p>Natures / Tree</p>
-					</div>
-				</a>
-			</div>
-		</div>-->
-		<div class="text-center pt-5">
-			<button class="site-btn">Load More</button>
 		</div>
+		
 	</section>
+	<div class="text-center pt-5">
+			<button class="site-btn"  v-on:click = "loadMore();">Load More</button>
+		</div>
+		</div>
+
 	<!-- Gallery section end -->
 
 	<!-- Footer section -->
@@ -245,9 +114,20 @@
 	var app = new Vue({
   el: '#app',
   data: {
-        galleryInfo: galleryInfo
+        galleryInfo: galleryInfo,
+        max: 10
   },
   mounted : function (){
+  },
+  methods : {
+  	loadMore: function(){
+  		this.max = this.max + 10;
+  		this.$nextTick(() => {
+         $('.gallery-gird').masonry();
+      });
+
+  	}
+
   }
 
 });</script>

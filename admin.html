@@ -17,7 +17,10 @@
     height: 30px;
     margin-left: -15px;
         width: 70%;
-
+}
+.modal-body p {
+    word-wrap: break-word;
+    font-size: smaller;
 }
  
 </style>
@@ -66,16 +69,46 @@
 			<a href="./index.html" class="site-logo">
 				<image src="image/logo.png" alt="">
 			</a>
-		<div class="menu-switch" id="menu-canvas-show">
+		<div class="menu-switch" id="menu-canvas-show">`
 			<i class="icon_menu"></i>
 		</div>
 	</header>
 	<!-- Header section end -->
-
+  
 	<!-- Contact section -->
+<div id="app">
 	<section class="contact-section">
-		<div class="container" style="color: white" id="app">
+    <!--
+      <div class="col-lg-12">
+    <p>Usage:</p>
+    <p>
+    * 사진 업로드 <br>
+    1. 어드민 페이지에서 Upload Images 를 누른다. <br>
+    2. 업로드할 사진 이름을 입력한다. <br>
+    3. Create Script를 누르면 나오는 생성되는 스크립트를 settings.json에 업로드한다.<br>
+    4. 사진을 깃허브에 업로드한다. <br>
+     - 사진이름은 현재 업로드 된 마지막 사진에서 1을 더한 숫자 부터. ex) 마지막 사진이 51.jpg 이었으면 업로드될 사진은 52.jpg<br>
+     - 업로드할 사진 파일 포맷은 jpg로 통일 ex) 사진파일이 1.png 이면 오른쪽 마우스 -> 이름 바꾸기 -> 1.jpg로 바꾸기<br>
+    5. 2-3분후 홈페이지에 들어가서 어드민 페이지에서 사진 추가 설명을 수정한다. <br><br>
+
+
+    * 메인 페이지 & 갤러리 페이지 수정<br>
+    1. 수정을한다.<br>
+    2. 수정이 끝나명 Create Script를 누르고, 나온 스크립트를 복사해 settings.json에 붙여넣기를 한다.
+</p>
+  </div>
+-->
+		<div class="container" style="color: white">
+           <div class="form-group">        
+      <div>
+        <!--<a v-bind:href="previewMain" class="btn btn-primary" target="_blank">Preview</a>-->
+        <a v-on:click = "createScript()" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Create Script</a>
+        <a v-on:click = "cancelEdit()" class="btn btn-danger">Cancel</a>
+      </div>
+    </div>
+  
   <form class="form-horizontal">
+    <!--
     <div class="form-group">
       <label class="control-label col-sm-2" for="title">Title</label>
       <div class="col-sm-10">
@@ -106,14 +139,7 @@
         <input type="text" class="form-control" name="img3" v-model="img3">
       </div>
     </div>
-      <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <a v-bind:href="previewMain" class="btn btn-primary" target="_blank">Preview</a>
-        <a v-on="previewMain" v-on:click = "createScript($event)" class="btn btn-primary">Create Script</a>
-      </div>
-
-    </div>
-   
+  -->
   </form>
   <div class="row">
   <div class="col-3" v-for="(img, i) in galleryInfo" style="margin-bottom: 5px;" v-if=!img.isDeleted>
@@ -130,6 +156,28 @@
 </div>
 <!--<p>var galleryInfo = {{galleryString}};<p>-->
 
+  </div>  
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        <textarea style="width:100%"id="copiedScript">var galleryInfo = {{galleryString}} ;</textarea>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btn-default" v-on:click="copyScript()">Copy</button>
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+      </div>
+    </div>
+
+  </div>
+</div>
 </div>
 <!--
 <iframe src="index.html" width="100%" height="100%">
@@ -137,8 +185,9 @@
 </iframe>
 -->
 
-	</div>	
+
 	</section>
+</div>
 	<!-- Contact section end -->
 
 	<!-- Footer section -->
@@ -162,6 +211,8 @@
 		<script src="js/vue.js"></script>
 
 		<script type="text/javascript" src="settings.json"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script type="text/javascript">
 
 	var settings = JSON.parse(jMain);
@@ -198,10 +249,44 @@
   methods : {
   	createScript: function(){
   		console.log('var galleryInfo = ' + this.galleryString + ';');
+      return 'var galleryInfo = ' + this.galleryString + ';';
   		//alert('var galleryInfo = ' + this.galleryString);
 
 
-  	}
+  	},
+    copyScript: function(){
+var copyText = document.getElementById("copiedScript");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  //alert("Copied the text: " + copyText.value);
+  alert("copy 되어써용");
+    },
+    cancelEdit: function(){
+
+    swal({
+      text : "진짜 되돌아갑니다. 갠차나?",
+  buttons: {
+    yes : {
+      text : "Yes",
+      value : 'yes'
+    },
+    no: {
+      text : "No",
+      value : 'no'
+    }
+  }
+}).then((value) => {
+  switch (value) {
+    case "yes":
+      location.reload();
+      break;
+    default: 
+      break;
+    }
+});
+
+    }
   	//previewMain: function(){
   	//	this.mainPage = "index.html?preview=true&" + this.content
   	//}
